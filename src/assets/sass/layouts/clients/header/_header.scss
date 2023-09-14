@@ -1,0 +1,14 @@
+@use "../../../variables/colors" as color;
+
+.layout-clients__header{
+    background-color: red;
+    color: map-get(color.$text-color, "white" );
+    background-color: map-get(color.$primary-color, "normal" ) ;
+    height: 6rem;
+    display: grid;
+    place-items: center;
+    h1{
+        font-size: 2.4rem;
+        font-weight: 600;
+    }
+}

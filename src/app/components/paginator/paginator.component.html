@@ -1,0 +1,13 @@
+<div class="c-paginator">
+    <div class="c-paginator__arrow" *ngIf="currentPage > 1">
+        <img (click)="setPage(currentPage - 1)" src="assets/icons/flecha_paginator_izq.svg" alt="Flecha Movimiento">
+    </div>
+    <span *ngIf="currentPage > 2"(click)="setPage(currentPage - 2)">{{ currentPage - 2 }}</span>
+    <span *ngIf="currentPage > 1"(click)="setPage(currentPage - 1)">{{ currentPage - 1 }}</span>
+    <span (click)="setPage(currentPage)" class="selected">{{ currentPage }}</span>
+    <span *ngIf="totalPages > currentPage" (click)="setPage(currentPage + 1)">{{ currentPage + 1 }}</span>
+    <span *ngIf="totalPages > currentPage + 1" (click)="setPage(currentPage + 2)" >{{ currentPage + 2 }}</span>
+    <div class="c-paginator__arrow" *ngIf="totalPages > currentPage">
+        <img (click)="setPage(currentPage + 1)" src="assets/icons/flecha_paginator_derecha.svg" alt="Flecha Movimiento">
+    </div>
+</div>

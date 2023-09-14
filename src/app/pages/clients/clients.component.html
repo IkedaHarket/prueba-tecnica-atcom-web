@@ -1,0 +1,37 @@
+
+
+
+<div 
+*ngIf="clients | async as clients" 
+class="client-page"
+>
+<div class="client-page__select">
+    <p-selectButton [options]="endpoints" [(ngModel)]="endpointSelected" optionLabel="label" optionValue="value"></p-selectButton>
+</div>
+    <p-table 
+    
+    [value]="clients.item?.clients || []" 
+    styleClass="p-datatable-striped"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    >
+    <ng-template pTemplate="header">
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Telefono</th>
+            <th>Email</th>
+            <th>Pais</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.phone | phoneNumber}}</td>
+            <td>{{ product.email }}</td>
+            <td>{{ product.country.name }}</td>
+        </tr>
+    </ng-template>
+</p-table>
+<app-paginator [totalPages]="clients.item?.totalPages || 0" [currentPage]="currentPage" (currentPageChange)="pageChange($event)"></app-paginator>
+</div>

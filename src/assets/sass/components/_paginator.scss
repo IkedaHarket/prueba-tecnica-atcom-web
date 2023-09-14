@@ -1,0 +1,47 @@
+@use "../variables/colors" as color;
+@use "../variables/variables" as var;
+
+.c-paginator{
+    align-items: center;
+    display: flex;
+    font-size: 1.6rem;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding: .5rem 0;
+    span{
+        -webkit-user-select: none;
+        align-items: center;
+        border-radius: map-get(var.$border, "medium" );
+        color: map-get( color.$text-color, "grey" );
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        padding: .4rem 1.2rem;
+        text-align: center;
+        transition: map-get( var.$transition, "fast" ) background-color, map-get( var.$transition, "fast" ) color;
+        user-select: none;
+        width: 1.8rem;
+        &:hover{
+            background-color: lighten($color: map-get( color.$primary-color, "normal" ), $amount: 10);
+            color: map-get( color.$color, "white" );
+        }
+        &.selected{
+            background-color: lighten($color: map-get( color.$primary-color, "normal" ), $amount: 10);
+            color: map-get( color.$color, "white" );
+        }
+    }
+    .c-paginator__arrow{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        width: 1.6rem;
+        img{
+            transition: map-get( var.$transition, "fast" ) transform;
+            cursor: pointer;
+            &:hover{
+                transform: scale(1.2);
+            }
+        }
+    }
+}
